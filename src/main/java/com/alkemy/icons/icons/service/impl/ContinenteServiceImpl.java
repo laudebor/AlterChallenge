@@ -19,17 +19,20 @@ public class ContinenteServiceImpl implements ContinenteService {
     @Autowired
     private ContinenteRepository continenteRepository;
 
-    public ContinenteDTO save(ContinenteDTO dto){
+    public ContinenteDTO save(ContinenteDTO dto) {
         ContinenteEntity continenteEntity = continenteMapper.MapperContinenteDTO2Entity(dto);
         ContinenteEntity entitySaved = continenteRepository.save(continenteEntity);
         ContinenteDTO continenteDTO = continenteMapper.MapperContinenteEntity2DTO(entitySaved);
-        //TODO: GUARDAR CONTINENTE
         return continenteDTO;
     }
 
-    public List<ContinenteDTO> getAllContinentes(){
+    public List<ContinenteDTO> getAllContinentes() {
         List<ContinenteEntity> continentes = continenteRepository.findAll();
         List<ContinenteDTO> continentesDTO = continenteMapper.MapperListContinenteEntity2DTO(continentes);
         return continentesDTO;
+    }
+
+    public void delete(Long id) {
+        continenteRepository.deleteById(id);
     }
 }

@@ -19,6 +19,8 @@ public class PaisEntity {
 
     private String imagen;
 
+    private String denominacion;
+
     @Column(name = "cant_habitantes")
     private Long cantidadHabitantes;
 
