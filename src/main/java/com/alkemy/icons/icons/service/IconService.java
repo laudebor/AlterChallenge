@@ -7,5 +7,9 @@ import java.util.List;
 
 public interface IconService {
 
+    IconDTO save(IconDTO dto);
     List<IconBasicDTO> getAllBasicIcons();
+
+    void delete(Long id);
+
 }

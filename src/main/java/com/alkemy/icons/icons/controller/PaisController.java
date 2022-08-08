@@ -29,4 +29,10 @@ public class PaisController {
         return ResponseEntity.status(HttpStatus.CREATED).body(paisGuardado);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+        paisService.delete(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
 }

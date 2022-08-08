@@ -2,6 +2,8 @@ package com.alkemy.icons.icons.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -11,6 +13,8 @@ import java.util.Set;
 @Table(name = "pais")
 @Getter
 @Setter
+@SQLDelete(sql = "UPDATE pais SET deleted = true WHERE id=?")
+@Where(clause = "deleted = false")
 public class PaisEntity {
 
     @Id
@@ -26,7 +30,9 @@ public class PaisEntity {
 
     private Long superficie; //m2
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private boolean deleted = Boolean.FALSE;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "continente_id", insertable = false, updatable = false)
     private ContinenteEntity continente;
 

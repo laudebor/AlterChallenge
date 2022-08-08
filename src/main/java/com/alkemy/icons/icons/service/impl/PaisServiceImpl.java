@@ -32,4 +32,8 @@ public class PaisServiceImpl implements PaisService {
         List<PaisDTO> paisesDTO = paisMapper.paisEntityList2DTOList(paises, false);
         return paisesDTO;
     }
+
+    public void delete(Long id) {
+        paisRepository.deleteById(id);
+    }
 }
