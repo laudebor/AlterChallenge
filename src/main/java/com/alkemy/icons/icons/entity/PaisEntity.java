@@ -32,14 +32,14 @@ public class PaisEntity {
 
     private boolean deleted = Boolean.FALSE;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "continente_id", insertable = false, updatable = false)
     private ContinenteEntity continente;
 
     @Column(name = "continente_id", nullable = false)
     private Long continenteId;
 
-    @ManyToMany(
+    /*@ManyToMany(
             cascade = {
                     CascadeType.PERSIST, CascadeType.MERGE
             }
@@ -50,5 +50,5 @@ public class PaisEntity {
             inverseJoinColumns = @JoinColumn(name = "icon_id")
     )
     private Set<IconEntity> icons = new HashSet();
-
+    */
 }

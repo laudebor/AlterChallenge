@@ -38,7 +38,7 @@ public class IconEntity {
 
     private boolean deleted = Boolean.FALSE;
 
-    @ManyToMany(mappedBy = "icons", cascade = CascadeType.ALL)
-    private List<PaisEntity> paises = new ArrayList<>();
+    /*@ManyToMany(mappedBy = "icons", cascade = CascadeType.ALL)
+    private List<PaisEntity> paises = new ArrayList<>();*/
 
 }

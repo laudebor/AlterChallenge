@@ -45,8 +45,8 @@ public class IconMapper {
         dto.setHistoria(entity.getHistoria());
         dto.setFechaCreacion(entity.getFechaCreacion());
         if(loadPaises){
-            List<PaisDTO> paisesDTO = paisMapper.paisEntityList2DTOList(entity.getPaises(), false);
-            dto.setPaises(paisesDTO);
+            //List<PaisDTO> paisesDTO = paisMapper.paisEntityList2DTOList(entity.getPaises(), false);
+            //dto.setPaises(paisesDTO);
         }
         return dto;
     }

@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
@@ -23,6 +24,7 @@ public class PaisController {
         return ResponseEntity.ok().body(paises);
     }
 
+    @Transactional
     @PostMapping
     public ResponseEntity<PaisDTO> save(@RequestBody PaisDTO pais){
         PaisDTO paisGuardado = paisService.save(pais);

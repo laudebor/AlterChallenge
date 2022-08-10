@@ -25,8 +25,9 @@ public class PaisMapper {
         pais.setCantidadHabitantes(dto.getCantidadHabitantes());
         pais.setContinenteId(dto.getContinenteId());
         pais.setSuperficie(dto.getSuperficie());
-        Set<IconEntity> icons = new HashSet<>(iconMapper.iconListDTO2Entity(dto.getIcons()));
-        pais.setIcons(icons);
+        //Set<IconEntity> icons = new HashSet<>(iconMapper.iconListDTO2Entity(dto.getIcons()));
+        //pais.setIcons(icons);
+        //pais.setIcons(iconMapper.iconListDTO2Entity(dto.getIcons()));
         return pais;
     }
 
@@ -39,8 +40,8 @@ public class PaisMapper {
         dto.setSuperficie(paisEntity.getSuperficie());
         dto.setCantidadHabitantes(paisEntity.getCantidadHabitantes());
         if(loadIcons){
-            List<IconDTO> iconDTOs = iconMapper.iconSetEntity2DTO(paisEntity.getIcons(), false);
-            dto.setIcons(iconDTOs);
+            //List<IconDTO> iconDTOs = iconMapper.iconSetEntity2DTO(paisEntity.getIcons(), false);
+            //dto.setIcons(iconDTOs);
         }
         return dto;
     }
